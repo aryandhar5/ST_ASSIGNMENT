@@ -1,7 +1,7 @@
 
 ### EXERCISE - 1
 
-### lets install necessary packages
+#### lets install necessary packages
 install.packages("usethis")
 library(tidyverse)
 library(usethis)
