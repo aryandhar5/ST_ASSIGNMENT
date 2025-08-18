@@ -7,7 +7,7 @@ library(tidyverse)
 library(usethis)
 install.packages("gitcreds")
 
-### Read the csv file vic_elect.csv into a tibble named X.
+#### Read the csv file vic_elect.csv into a tibble named X.
 
 X <- read_csv("C:/Users/Aryan/Downloads/vic_elect.csv")
 
