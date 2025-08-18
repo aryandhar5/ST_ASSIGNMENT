@@ -47,7 +47,7 @@ N <- ncol(M)           # number of columns in M
 ## Create a vector to store individual column totals
 column_totals <- numeric(0)
 
-# While loop
+## While loop
 while(running_sum <= 4000 && i <= N){
   col_total <- sum(M[, i], na.rm = TRUE)   # sum of current column
   column_totals <- c(column_totals, col_total)  # store the total
