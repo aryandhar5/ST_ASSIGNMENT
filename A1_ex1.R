@@ -23,7 +23,7 @@ cat("total sum of all demand in the dataset = ",total_demand_sum)
 average_demand_for_July <- mean(X$demand[X$month=='Jul'],na.rm = TRUE)
 cat("the average demand for all records where month is Jul = ",average_demand_for_July)
 
-### Compute and show the median of demand of all records where temp is below 15.
+#### Compute and show the median of demand of all records where temp is below 15.
 meadian_of_demand_temp_below_15 <- median(X$demand[X$temp<15])
 
 ### Find the record with the highest demand, and display its corresponding year and month.
