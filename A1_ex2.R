@@ -1,5 +1,5 @@
 
-## EXERCISE 2
+### EXERCISE 2
 
 ## Set the random seed: set.seed(2025)
 set.seed(2025)
