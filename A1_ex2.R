@@ -8,15 +8,7 @@ set.seed(2025)
 # 1. name, a character string in the format n_i, where i represents the slot number.
 # 2. vect, a numeric vector of 5 elements sampled from a normal distribution with mean = 20 and std = 10
 
-N <- 100
-X <- list()
 
-for(i in 1:N){
-  X[[i]] <- list(
-    name = paste("n_",i),
-    vect = rnorm(5,mean=20,sd=10)
-  )
-}
 
 ## Display the structure of X using (str(X)).
 str(X)
