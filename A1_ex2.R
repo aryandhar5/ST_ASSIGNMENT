@@ -44,7 +44,7 @@ running_sum <- 0       # cumulative sum
 i <- 1                 # column index
 N <- ncol(M)           # number of columns in M
 
-# Create a vector to store individual column totals
+## Create a vector to store individual column totals
 column_totals <- numeric(0)
 
 # While loop
