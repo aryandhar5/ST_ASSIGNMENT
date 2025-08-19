@@ -36,3 +36,13 @@ hypothesis <- function(file_name){
   cat("H1: β1 ≠ 0 (linear relationship exists between X and Y)\n\n")
 }
 
+## FUNCTION 2 : Decision()
+#----------------------------------------
+decision <- function(fit_model){
+  p_val <- summary(fit_model)$coefficients[2, "Pr(>|t|)"]
+  if(p_val<0.05){
+    cat("Decison -> Reject null hypothesis")
+  }else{
+    cat("Decision -> Failed to reject null hypothesis")
+  }
+}
