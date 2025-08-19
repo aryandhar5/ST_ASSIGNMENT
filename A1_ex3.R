@@ -40,9 +40,28 @@ hypothesis <- function(file_name){
   cat("Hypothesis for", file_name, ":\n")
   cat("H0: β1 = 0 (no linear relationship between X and Y)\n")
   cat("H1: β1 ≠ 0 (linear relationship exists between X and Y)\n\n")
+  
 }
 
-## FUNCTION 2 : Decision()
+## FUNCTION 2 : assumptions()
+assumptions <- function(file_name) {
+  data <- read.csv(file_name)
+  model <- lm(Y ~ X, data=data)
+  
+  # 1. scatter plot: Y vs X
+  plot(data$X, data$Y, main="Y vs X", pch=19)
+  abline(model, col="red",lwd=2)
+  
+  # 2. Residuals vs fitted
+  plot(fitted(model), resid(model), main="Residuals vs Fitted", 
+       xlab="Fitted values", ylab="Residuals")
+  abline(h=0, lty=2)
+              
+  # 3. Histogram of residuals
+  hist(resid(model),main="Histogram of residuals", xlab="Residuals")
+}
+
+## FUNCTION 3 : Decision()
 #----------------------------------------
 decision <- function(fit_model){
   p_val <- summary(fit_model)$coefficients[2, "Pr(>|t|)"]
@@ -53,4 +72,4 @@ decision <- function(fit_model){
   }
 }
 
-## 
+## FUNCTION 3 : 
