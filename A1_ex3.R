@@ -26,7 +26,13 @@ abline(h=0, lyt=2)
 
 ## added distinction level code
 
-## FUNCTION 1 : HYPOTHESIS()
+## FUNCTION 1 : HYPOTHESIS() - ## This function reads a dataset from a CSV file and prints the null (H0) and alternative (H1) 
+## hypotheses for a simple linear regression analysis. It assumes the goal is to test whether 
+## there is a statistically significant linear relationship between the predictor variable (X) 
+## and the response variable (Y), using the slope coefficient β1.
+## 
+## Usage: hypothesis("your_data.csv")
+## Output: Displays H0 and H1 statements for the specified dataset.
 #---------------------------------------
 hypothesis <- function(file_name){
   ## lets read the data
@@ -41,8 +47,10 @@ hypothesis <- function(file_name){
 decision <- function(fit_model){
   p_val <- summary(fit_model)$coefficients[2, "Pr(>|t|)"]
   if(p_val<0.05){
-    cat("Decison -> Reject null hypothesis")
+    cat("Decision -> Reject null hypothesis")
   }else{
     cat("Decision -> Failed to reject null hypothesis")
   }
 }
+
+## 
