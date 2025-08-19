@@ -17,3 +17,22 @@ model1 <- lm(Y ~ X, data=data1)
 
 plot(data1$X, data1$Y, main = "Y vs X", pch=18)
 abline(model1, col="red", lwd=2)
+
+## Residual vs Fitted 
+
+plot(fitted(model1), resid(model1), main = "Residual vs Fitted", xlab = "Fitted values", ylab = "Residuals")
+abline(h=0, lyt=2)
+
+
+## added distinction level code
+
+## FUNCTION 1 : HYPOTHESIS()
+#---------------------------------------
+hypothesis <- function(file_name){
+  ## lets read the data
+  data <- read.csv(file_name)
+  cat("Hypothesis for", file_name, ":\n")
+  cat("H0: β1 = 0 (no linear relationship between X and Y)\n")
+  cat("H1: β1 ≠ 0 (linear relationship exists between X and Y)\n\n")
+}
+
