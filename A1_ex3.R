@@ -21,12 +21,13 @@ abline(model1, col="red", lwd=2)
 ## Residual vs Fitted 
 
 plot(fitted(model1), resid(model1), main = "Residual vs Fitted", xlab = "Fitted values", ylab = "Residuals")
-abline(h=0, lyt=2)
+abline(h=0, lty=2)
 
 
 ## added distinction level code
 
-## FUNCTION 1 : HYPOTHESIS() - ## This function reads a dataset from a CSV file and prints the null (H0) and alternative (H1) 
+## FUNCTION 1 : HYPOTHESIS() 
+## - This function reads a dataset from a CSV file and prints the null (H0) and alternative (H1) 
 ## hypotheses for a simple linear regression analysis. It assumes the goal is to test whether 
 ## there is a statistically significant linear relationship between the predictor variable (X) 
 ## and the response variable (Y), using the slope coefficient β1.
@@ -44,6 +45,7 @@ hypothesis <- function(file_name){
 }
 
 ## FUNCTION 2 : assumptions()
+
 assumptions <- function(file_name) {
   data <- read.csv(file_name)
   model <- lm(Y ~ X, data=data)
@@ -61,6 +63,14 @@ assumptions <- function(file_name) {
   hist(resid(model),main="Histogram of residuals", xlab="Residuals")
 }
 
+## Fit function
+fit <- function(file_name) {
+  data <- read.csv(file_name)
+  model <- lm(Y ~ X, data=data)
+  print(summary(model))
+  return(model)
+}
+
 ## FUNCTION 3 : Decision()
 #----------------------------------------
 decision <- function(fit_model){
@@ -72,4 +82,27 @@ decision <- function(fit_model){
   }
 }
 
-## FUNCTION 3 : 
+## FUNCTION 4 : Conclusion()
+#-----------------------------------------
+conclusion <- function(fit_model){
+  p_val <- summary(fit_model)$coefficients[2,"Pr(>|t|)"]
+  if(p_val < 0.05){
+    cat("Conclusion: At 5% significance level, there is evidence of a linear relationship between X and Y.\n")
+    
+  }else{
+    cat("Conclusion: At 5% significance level, there is no evidence of a linear relationship between X and Y.\n")
+  }
+}
+
+
+## call functions for dataset 1
+hypothesis("A1_Ex3_signif.csv")
+assumptions("A1_Ex3_signif.csv")
+
+fit1 <- fit("A1_Ex3_signif.csv")
+
+decision(fit1)
+conclusion(fit1)
+
+
+
